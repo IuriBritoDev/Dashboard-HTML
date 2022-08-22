@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/all.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="flex-dashboard">
+        <sidebar id="sidebar">
+            <div class="sidebar-title">
+                <img src="images/webicon.png">
+                <h2>AUTOMAÇÃO DE ESTUFA</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <div class="dahs">
+                                <img src="images/dashboard.png">
+                                <label class="lbl-dashboard">DASHBOARD</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./views/sensor.html">
+                            <div >
+                                <img src="images/sensor.png" >
+                                <label class="lbl-dashboard">SENSORES</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./views/controlador.html">
+                            <div>
+                                <img src="images/CE.png">
+                                <label class="lbl-dashboard">CONTROLADORES</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="conexao.html">
+                            <div>
+                                <img src="images/connect.png">
+                                <label class="lbl-dashboard">CONEXÕES</label>
+                            </div>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="./images/cadastro.png">
+                                <label class="lbl-dashboard" for="btn-1">
+                                    CADASTRO
+                                    <span class="fas"></span>
+                                </label>
+                            </div>
+                        </a>
+                        <input type="checkbox" id="btn-1">
+                        <ul>
+                            <li>
+                                <a href="./views/cadastroSensor.html">
+                                    <div>
+                                        <label class="lbl-dashboard">SENSOR</label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./views/cadastroControlador.html">
+                                    <div>
+                                        <label class="lbl-dashboard">CONTROLADOR</label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./views/cadastroConexao.html">
+                                    <div>
+                                        <label class="lbl-dashboard">CONEXÕES</label>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <a href="configuracoes.html">
+                            <div>
+                                <img src="images/engrenagem.png">
+                                <label class="lbl-dashboard">CONFIGURAÇÕES</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="sidebar_logout">
+
+                        <a href="">
+                            <div>
+                                <img src="images/seta_voltar.png">
+                                <label class="lbl-dashboard">SAIR</label>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </sidebar>
+        <main id="mainContent">
+            <header>
+                <img src="images/menu_icon.png" class="icon_menu" id="icon_menu" onclick="resposivesidebar()">
+
+                <a><img src="images/seta_voltar.png" class="sair">SAIR</a>
+
+            </header>
+            <div class="main-content">
+                <p>DASHBOARD</p>
+
+
+                <div class="dashboard-content">
+                    <div class="dashboard-flex-parent">
+
+
+                        <div class="dashboard-box">
+                            <div class="dashboard-box-wrapper">
+                                
+                                <div class="box-icon">
+                                    <img src="images/temp_50per.png">
+                                </div>
+                                <div class="valor">
+                                    TEMPERATURA<br>
+                                    30° C
+
+                                </div>
+                                <div class="box-grafico">
+                                    <canvas id="temp" width="100" height="100"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-box">
+                            <div class="dashboard-box-wrapper">
+                                <div class="box-icon">
+                                    <img src="images/Humidade_50per.png">
+
+                                </div>
+                                <div class="valor">
+                                    UMIDADE<br>
+                                    30° %
+
+                                </div>
+                                <div class="box-grafico">
+                                    <canvas id="umid" width="400" height="400"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-box">
+                            <div class="dashboard-box-wrapper">
+                                <div class="box-icon">
+                                    <img src="images/Luminosidade_50per.png">
+
+                                </div>
+                                <div class="valor">
+                                    LUMINOSIDADE<br>
+                                    20%
+
+                                </div>
+                                <div class="box-grafico">
+                                    <canvas id="lumino" width="400" height="400"></canvas>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="dashboard-box">
+                            <div class="dashboard-box-wrapper">
+                                <div class="box-icon">
+                                    <img src="images/ventoinha.png">
+
+                                </div>
+                                <div class="valor">
+                                    VENTILADOR<br>
+                                    DESLIGADO
+
+                                </div>
+                                <div class="valor">
+                                    <button type="submit" class="btn btn-success">Ligar</button>
+
+                                </div>
+                                <div class="box-grafico">
+                                    <canvas id="ventoinha" width="400" height="400"></canvas>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="dashboard-box">
+                            <div class="dashboard-box-wrapper">
+                                <div class="box-icon">
+                                    <img src="images/bomba.png">
+
+                                </div>
+                                <div class="valor">
+                                    BAOBA D'ÁGUA<br>
+                                    DESLIGADO
+
+                                </div>
+                                <div class="valor">
+                                    <button type="submit" class="btn btn-success">Desligar</button>
+
+                                </div>
+                                <div class="box-grafico">
+                                    <canvas id="bomba" width="400" height="400"></canvas>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="dashboard-box">
+                            <div class="dashboard-box-wrapper">
+                                <div class="box-icon">
+                                    <img src="images/motor.png">
+
+                                </div>
+                                <div class="valor">
+                                    COBERTURA<br>
+                                    ABERTO
+
+                                </div>
+                                <div class="valor">
+                                    <button type="submit" class="btn btn-success">Ligar</button>
+
+                                </div>
+                                <div class="box-grafico">
+                                    <canvas id="cobertura" width="400" height="400"></canvas>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+        integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="js/menu.js"></script>
+    <script src="js/grafico1.js"></script>
+    <script src="js/grafico2.js"></script>
+    <script src="js/grafico3.js"></script>
+
+</body>
+
+</html>
